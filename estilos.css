@@ -1,0 +1,192 @@
+* {
+    box-sizing: border-box; /* Evita que el padding estire las cajas fuera del móvil */
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary: #2c3e50;
+    --accent: #3498db;
+    --light: #f4f7f6;
+    --white: #ffffff;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light);
+    color: var(--primary);
+    line-height: 1.6;
+    width: 100%;
+    overflow-x: hidden; /* Seguridad total contra el movimiento lateral */
+}
+
+/* --- 2. CONTENEDORES --- */
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px; /* Margen de seguridad para que el texto no toque el borde del cel */
+}
+
+header {
+    background: var(--primary);
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+/* --- 3. COMPONENTES DE LA CARTA (INDEX Y DETALLES) --- */
+.card {
+    background: var(--white);
+    border-radius: 10px;
+    padding: 1.5rem;
+    text-aling:center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+/* Ajuste para la descripción de carrera en el Index */
+.career-info div {
+    margin-top: 10px;
+}
+
+.career-info span {
+    display: block; /* En móvil, cada dato en su propio renglón */
+    background: #eef2f7;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+}
+
+/* --- 4. DISEÑO DE LA UNIVERSIDAD 1 (DETALLES) --- */
+.logo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.logo-wrapper img, .card img {
+    max-width: 100%;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+}
+
+.card-title {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+/* Ajuste de listas de datos (Ubicación, Teléfono, etc) */
+.list-group {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.list-group .list-group-item {
+    background: #fff;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 0.95rem;
+}
+
+/* --- 5. BUSCADOR Y LISTA DE MATERIAS (INTERACTIVO) --- */
+.search-container {
+    width: 100%;
+    margin: 15px 0;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    font-size: 16px; /* Evita zoom automático en móviles */
+}
+
+.curriculum-list {
+    padding-left: 0;
+    list-style-position: inside; /* Mantiene los números dentro */
+}
+
+.curriculum-list .list-group-item {
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+/* --- 6. GRID DE LA PORTADA --- */
+.grid-universities {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.btn, .btn-back {
+    display: block;
+    text-align: center;
+    background: var(--accent);
+    color: white;
+    padding: 12px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* --- 7. MODO OSCURO --- */
+body.dark-theme { background: #121212; color: #eee; }
+.dark-theme .card, .dark-theme .list-group-item { background: #1e1e1e; color: #fff; }
+
+/* --- RESPONSIVIDAD --- */
+@media (min-width: 600px) {
+    .career-info span { display: inline-block; width: auto; margin-right: 15px; }
+}
+
+/* --- ESTILOS DEL FOOTER CORREGIDOS --- */
+.main-footer {
+    background: var(--primary); /* El color azul oscuro que ya usas */
+    color: white;
+    padding: 30px 15px;
+    margin-top: 40px;
+    text-align: center;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.slogan {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+.footer-line {
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    margin: 15px auto;
+    width: 80%;
+}
+
+.credits p {
+    margin: 5px 0;
+    font-size: 0.85rem;
+}
+
+.copyright {
+    font-size: 0.75rem;
+    margin-top: 20px;
+    opacity: 0.7;
+}
+
+/* Ajuste para que el botón de Modo Oscuro no tape el footer */
+.btn-dark-mode {
+    z-index: 9999;
+}
